@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>Conversor</title>
+    </head>
+    <body>
+        <h1 class="text-center">Conversor de Binário para Decimal</h1>
+        <div class="m-2"></div>
+        <form class="text-center row w-25 border border-dark m-auto rounded">
+            <fieldset class="col">
+                <h2><label>Texto em Binário:</label></h2>
+                <textarea id="txt" rows="4" class="row m-auto border border-dark"></textarea> 
+                <input type="button" value="123" onclick="convertToInteger()" class="btn btn-info w-25 m-2">
+            </fieldset>     
+        </form>
+        <div class="m-2"></div>
+        <form class="text-center row w-25 border border-dark m-auto rounded">
+            <fieldset class="col">   
+            <h2><label>Texto em Númerico: </label></h2>
+                <textarea id="demo" rows="4" class="row m-auto border border-dark"></textarea> 
+                <input type="button" value="🤖" onclick="convertToBinary()" class="btn btn-info w-25 m-2">
+            </fieldset>
+        </form>
+    </body>
+    <script>
+        function convertToInteger() {
+            var str = document.getElementById("txt").value;
+            if(str ==="") {
+                return "";
+            } else{
+            document.getElementById("demo").value = parseInt(str, 2);
+            }               
+        }
+
+        function convertToBinary() {
+            var str = document.getElementById("demo").value;
+            document.getElementById("txt").value = decimalToBinary(str);
+        }
+
+        function decimalToBinary(a) {
+            var binary = '';
+            while (a>0) {
+                binary = (a%2) + binary;
+                a = Math.floor(a/2);
+            }
+            return binary;
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+        var textarea = document.getElementById("txt");
+
+        textarea.addEventListener("input", function() {
+            var value = textarea.value;
+            var sanitizedValue = value.replace(/[^01]/g, "");
+
+            if (value !== sanitizedValue) {
+                textarea.value = sanitizedValue;
+            }
+            });
+        });
+    </script>
+</html>
