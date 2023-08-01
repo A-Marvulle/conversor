@@ -14,7 +14,7 @@
               <div class="col-md-6 col-12 p-2">
                 <form class="border rounded m-3 p-2">
                   <h2><label>Texto em Binário</label></h2>
-                  <textarea id="txt" class="form-control m-1" placeholder="Somente 0 ou 1"></textarea> 
+                  <textarea id="txt" class="form-control m-1" placeholder="10101010"></textarea> 
                   <input type="button" value="123" onclick="convertToInteger()" class="btn btn-info mt-sm-2 w-100 m-1"/>   
                   <input type="reset" value="Limpar" class="btn btn-danger mt-sm-2 w-100 m-1">
                 </form>
@@ -23,7 +23,7 @@
               <div class="col-md-6 col-12 p-2">
                 <form class="border rounded m-3 p-2">   
                   <h2><label>Texto em Númerico</label></h2>
-                  <textarea id="demo" class="form-control m-1 " placeholder="Somente Números Inteiros"  oninput="limitToNumbers(event)"></textarea> 
+                  <textarea id="demo" class="form-control m-1" placeholder="1234"></textarea> 
                   <input type="button" value="🤖" onclick="convertToBinary()" class="btn btn-info mt-sm-2 w-100 m-1">
                   <input type="reset" value="Limpar" class="btn btn-danger mt-sm-2 w-100 m-1">
                 </form>
@@ -39,11 +39,6 @@
             } else{
             document.getElementById("demo").value = parseInt(str, 2);
             }               
-        }
-       
-         function limitToNumbers(event) {
-          const textarea = event.target;
-          textarea.value = textarea.value.replace(/[^\d]/g, ''); // Remove todos os caracteres não numéricos
         }
 
         function convertToBinary() {
